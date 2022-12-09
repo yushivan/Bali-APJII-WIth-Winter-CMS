@@ -1,0 +1,154 @@
+title = "Kegiatan - Detail"
+url = "/kegiatan/:slug?"
+layout = "default"
+is_hidden = 0
+==
+<?php
+	use Winter\Blog\Models\Post;
+	use Winter\Blog\Models\Category;
+
+	function onStart()
+	{   
+		$slug = $this->param('slug');
+		$this['slug2'] = $this->param('slug');
+		$this['kegiatan'] = Post::where('slug', $slug)->first();
+
+		$this['side_kegiatan'] = Post::where('published', 1)->latest()->get();
+		$this['category2'] = Category::where('slug', 'kegiatan')->first();
+	}
+?>
+==
+<style type="text/css">
+	.accordion-list a{
+		text-decoration: none;
+		color: black;
+	}
+	.accordion-list a:hover{
+		color:  blue!important;
+	}
+	/*.col-lg-2{
+
+	}*/
+</style>
+
+{% put header_plus %}
+<!--<header class="header-base">-->
+<!--	<div class="container">-->
+<!--		<h1>{{kegiatan.title}}</h1>-->
+<!--		<h2>{{kegiatan.published_at|date('d M Y') }}</h2>-->
+<!--		<ol class="breadcrumb">-->
+<!--			<li><a href="{{url('/')}}">Home</a></li>-->
+<!--			<li><a href="{{url('/kegiatan')}}">Kegiatan</a></li>-->
+<!--			<li><a href="#">{{kegiatan.title}}</a></li>-->
+<!--		</ol>-->
+<!--	</div>-->
+<!--</header>-->
+{% endput %}
+
+
+<section class="section-base ">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8">
+				<img class="full-width" src="{{ kegiatan.featured_images[0].path }}" alt="" />
+				
+				<h2 class="p-y-10" style="text-transform: uppercase">{{kegiatan.title}}</h2>
+				
+				{{kegiatan.content|raw}}
+				<!-- <div class="list-nav">
+					<a href="#">Previous post</a>
+					<a class="list-archive" href="#"></a>
+					<a href="#">Next post</a>
+				</div> -->
+			</div>
+
+			<div class="col-lg-4">
+				<form class="form-box">
+					<div class="input-text-btn">
+						<input class="input-text" type="text" placeholder="Search ..." />
+						<input type="submit" value="Search" class="btn" />
+					</div>
+				</form>
+				<hr class="space-sm" />
+				<h3>Bulan</h3>
+				<hr class="space-xs" />
+
+				<ul class="accordion-list">
+					<li>
+						<a href="#">2021</a>
+						<div class="content">
+							<a href="#">Januari</a><br>
+							<a href="#">Februari</a><br>
+							<a href="#">Maret</a><br>
+							<a href="#">April</a><br>
+							<a href="#">Mei</a><br>
+							<a href="#">Juni</a><br>
+							<a href="#">Juli</a><br>
+							<a href="#">Agustus</a><br>
+							<a href="#">September</a><br>
+							<a href="#">Oktober</a><br>
+							<a href="#">November</a><br>
+							<a href="#">Desember</a>
+						</div>
+					</li>
+					<li>
+						<a href="#">2022</a>
+						<div class="content">
+							<a href="#">Januari</a><br>
+							<a href="#">Februari</a><br>
+							<a href="#">Maret</a><br>
+							<a href="#">April</a><br>
+							<a href="#">Mei</a><br>
+							<a href="#">Juni</a><br>
+							<a href="#">Juli</a><br>
+							<a href="#">Agustus</a><br>
+							<a href="#">September</a><br>
+							<a href="#">Oktober</a><br>
+							<a href="#">November</a><br>
+							<a href="#">Desember</a>
+						</div>
+					</li>
+					<li>
+						<a href="#">2023</a>
+						<div class="content">
+							<a href="#">Januari</a><br>
+							<a href="#">Februari</a><br>
+							<a href="#">Maret</a><br>
+							<a href="#">April</a><br>
+							<a href="#">Mei</a><br>
+							<a href="#">Juni</a><br>
+							<a href="#">Juli</a><br>
+							<a href="#">Agustus</a><br>
+							<a href="#">September</a><br>
+							<a href="#">Oktober</a><br>
+							<a href="#">November</a><br>
+							<a href="#">Desember</a>
+						</div>
+					</li>
+				</ul>
+
+				<hr class="space-sm" />
+				<h3>Berita Terbaru</h3>
+				<hr class="space-sm" />
+				<div class="menu-inner menu-inner-vertical menu-inner-image">
+					<ul>
+						{% for side_kegiatan in category2.posts %}
+						{% if side_kegiatan.slug != slug2 %}
+						<li>
+							<a href="#">
+								<img src="{{ side_kegiatan.featured_images[0].path }}" alt="" />
+								<span>{{side_kegiatan.published_at|date('Y-M-d')}}</span>
+								{{side_kegiatan.title}}
+							</a>
+						</li>
+						{% endif %}
+						{% endfor %}
+					</ul>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</section>
+

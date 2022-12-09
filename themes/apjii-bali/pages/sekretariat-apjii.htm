@@ -1,0 +1,91 @@
+title = "Sekretariat APJII Bali"
+url = "/sekretariat-apjii"
+layout = "default"
+is_hidden = 0
+==
+<?php
+    use Winter\Blog\Models\Post;
+    use Winter\Blog\Models\Category;
+    use Input;
+    use Mail;
+
+    function onStart()
+    {   
+        
+    }
+
+    public function onSend()
+    {
+        $vars = ['name' => Input::get('name'), 'email' => Input::get('email'), 'content' => Input::get('content')];
+        Mail::send('contactform', $vars, function($message){
+            $message->to('enquiry@bali.apjii.or.id', 'Contact Form');
+            $message->subject('Contact Form');
+        });
+        return redirect()->refresh();
+    }
+?>
+==
+
+{% put header_plus %}
+<!-- header -->
+<header class="header-image ken-burn-center light" data-parallax="true" data-natural-height="1080" data-natural-width="1920" data-bleed="0" data-image-src="{{ 'assets/media/sekre1.png'|theme }}" data-offset="0">
+    <div class="container">
+        <h1>SEKRETARIAT APJII BALI</h1>
+        <h2>Anggota dan Pengurus Wilayah APJII Bali </h2>
+    </div>
+</header> 
+<!-- end header -->
+{% endput %}
+
+<section class="section-base">
+    <div class="container">
+        <div class="row" style="margin-top: -20px;">
+            <div class="col-lg-8">
+                <div class="title">
+                    <h2>Kritik dan Saran</h2>
+                    <p>Silahkan mengisi form dibawah ini</p>
+                </div>
+                <form method="get" data-request="onSend" class="form-box" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <p>Nama Lengkap</p>
+                            <input id="name" name="name" placeholder="Nama lengkap" type="text" class="input-text" required>
+                        </div>
+                        <div class="col-lg-6">
+                            <p>Alamat Email</p>
+                            <input id="email" name="email" placeholder="alamat email" type="email" class="input-text" required>
+                        </div>
+                    </div>
+                    <p>Pesan</p>
+                    <textarea name="content" class="input-textarea" placeholder="Silahkan tuliskan pesan anda" required></textarea>
+                    <button class="btn btn-sm" type="submit">Submit</button>
+                    <!--<div class="success-box">-->
+                    <!--    <div class="alert alert-success">Terima kasih atas partisipasi anda untuk kemajuan APJII Bali</div>-->
+                    <!--</div>-->
+                </form>
+            </div>
+            <div class="col-lg-4">
+                <div class="title">
+                    <h2>Informasi Kontak</h2>
+                    <p>Hubungi kami</p>
+                </div>
+                <ul class="text-list text-list-line" style="margin-top: -20px;">
+                    <li> GEDUNG NIX KEMKOMINFO BALI</li
+                    >
+                    <li><b>Website</b><hr /><p>bali.apjii.or.id</p></li>
+                    <li><b>Email</b><hr /><p>sekretariat@bali.apjii.or.id</p></li>
+                    <li><b>Tlp</b><hr /><p>(+62)877-7792-2295</p></li>       
+                </ul> 
+                <hr class="space-sm" />
+                <div class="icon-links icon-social icon-links-grid social-colors-hover">
+                    <a class="facebook"><i class="icon-facebook"></i></a>
+                    <a class="twitter"><i class="icon-twitter"></i></a>
+                    <a class="instagram"><i class="icon-instagram"></i></a>
+                    <a class="google"><i class="icon-google"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr class="space" />
+        <div class="google-map" data-marker="media/marker.png"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.576437674929!2d115.18070231478373!3d-8.636596793793672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd238b40163af41%3A0xff4dd473ae2a978a!2sSekretariat%20APJII%20Bali!5e0!3m2!1sid!2sid!4v1637993661733!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>  
+    </div>
+</section>

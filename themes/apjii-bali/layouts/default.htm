@@ -1,0 +1,83 @@
+description = "Default layout"
+
+[session]
+security = "all"
+
+==
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>APJII Bali - {{ this.page.title }}</title>
+        <meta name="description" content="{{ this.page.meta_description }}">
+        <meta name="title" content="{{ this.page.meta_title }}">
+        <meta name="author" content="Winter CMS">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="generator" content="Winter CMS">
+
+        <link rel="icon" href="{{ 'assets/image/icon-apjii-new.png'|theme }}">
+
+        {% styles %}
+
+        <!-- fontawesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/brands.min.css" />
+
+        <script src="{{ 'assets/themekit/scripts/jquery.min.js'|theme }}"></script>
+        <script src="{{ 'assets/themekit/scripts/main.js'|theme }}"></script>
+        <link rel="stylesheet" href="{{ 'assets/themekit/css/bootstrap-grid.css'|theme }}">
+        <link rel="stylesheet" href="{{ 'assets/themekit/css/style.css'|theme }}">
+        <link rel="stylesheet" href="{{ 'assets/themekit/css/glide.css'|theme }}">
+        <link rel="stylesheet" href="{{ 'assets/themekit/css/magnific-popup.css'|theme }}">
+        <link rel="stylesheet" href="{{ 'assets/themekit/css/content-box.css'|theme }}">
+        <link rel="stylesheet" href="{{ 'assets/themekit/css/contact-form.css'|theme }}">
+        <link rel="stylesheet" href="{{ 'assets/themekit/css/media-box.css'|theme }}">
+        <link rel="stylesheet" href="{{ 'assets/skin.css'|theme }}">
+        
+        <!--owl slider-->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+        {% placeholder header_link %}
+        
+    </head>
+    <body class="page-main">
+
+        <!-- Header -->
+        {% partial 'header' %}
+
+        <!-- Content -->
+        {% placeholder header_plus %}
+
+        <main>
+            {% page %}
+        </main>
+
+        <!-- Footer -->
+        {% partial 'footer' %}
+
+        <!-- Scripts -->
+
+        <link rel="stylesheet" href="{{ 'assets/themekit/media/icons/iconsmind/line-icons.min.css'|theme }}">
+        <script src="{{ 'assets/themekit/scripts/parallax.min.js'|theme }}"></script>
+        <script src="{{ 'assets/themekit/scripts/glide.min.js'|theme }}"></script>
+        <script src="{{ 'assets/themekit/scripts/magnific-popup.min.js'|theme }}"></script>
+        <script src="{{ 'assets/themekit/scripts/tab-accordion.js'|theme }}"></script>
+        <script src="{{ 'assets/themekit/scripts/imagesloaded.min.js'|theme }}"></script>
+        <script src="{{ 'assets/themekit/scripts/progress.js'|theme }}" async></script>
+        <script src="{{ 'assets/themekit/scripts/custom.js'|theme }}" async></script>
+        <script src="{{ 'assets/themekit/scripts/contact-form/contact-form.js'|theme }}" async></script>
+        
+        
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
+        
+        <script src="{{ 'assets/app.js'|theme }}"></script>
+        {% scripts %}
+
+        {% placeholder footer_link %}
+
+        {% snowboard all %}
+        {% scripts %}
+
+    </body>
+</html>

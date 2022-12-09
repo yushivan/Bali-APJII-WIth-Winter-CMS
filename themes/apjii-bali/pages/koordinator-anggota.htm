@@ -1,0 +1,353 @@
+title = "Koordinator Anggota"
+url = "/koordinator-anggota"
+layout = "default"
+is_hidden = 0
+==
+<?php
+use Winter\Blog\Models\Post;
+	use Winter\Blog\Models\Category;
+
+	function onStart()
+	{   
+		$slug = $this->param('slug');
+		$this['post'] = Post::where('published', 1)->get();
+		$this['category'] = Category::where('slug', 'koordinator-anggota')->first();
+	}
+?>
+==
+<style type="text/css">
+	.img-box-caption img{
+		height: 250px;
+		object-fit: cover;
+		width: 100%;
+	}
+	.img-box-caption{
+		background-color: rgb(0,0,0,0.3)!important;
+	}
+	.img-box-caption span{
+		font-size: 40px;
+	}
+	.grid-item{
+	    max-width: 282px;
+	    padding: 20px;
+	    display:flex;
+	    align-items: center;
+	    justify-content: center;
+	}
+</style>
+
+{% put header_plus %}
+<header class="header-image" style="background-image:url(https://themekit.dev/shared/thumbs/hd-empty.png);">
+	<div class="container">
+		<h1>{{ this.page.title }}</h1>
+		<!-- <h2></h2> -->
+		<!-- <ol class="breadcrumb">
+			<li><a href="{{url('/')}}">Home</a></li>
+			<li><a href="#">{{this.page.title}}</a></li>
+		</ol> -->
+	</div>
+</header>
+{% endput %}
+
+<section class="section-base p-y-50">
+	<div class="container-fluid">
+		<!-- <h1 align="center" class="m-b-15">INFO GRAFIS ANGGOTA</h1> -->
+		<div class="active panel">
+			<div class="tab-box" data-tab-anima="fade-in">
+				<ul class="tab-nav justify-content-center">
+					<li class="active"><a href="#">Bali</a></li>
+					<li><a href="#">NTB</a></li>
+					<li><a href="#">NTT</a></li>
+				</ul>
+				<div class="panel active">
+				    <h2>Denpasar</h2>
+					<div class="grid-list gap-20" data-columns="6" data-columns-md="5" data-columns-sm="2" >
+						<div class="grid-box">
+							{% for info_grafis in category.posts %}
+							{% if info_grafis.info_grafis.provinsi == "Bali" and info_grafis.info_grafis.kabupaten == "Denpasar"  %}
+							<div class="grid-item">
+								<a id="example-box-trigger" href="#example-box-{{info_grafis.slug}}" class="img-box lightbox" data-lightbox-anima="fade-in">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center>
+								</a>
+								<div id="example-box-{{info_grafis.slug}}" class="box-lightbox">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center><br>
+									{{ info_grafis.content_html|raw }}
+								</div>
+							</div>
+							{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+					<hr/>
+					
+					<h2>Badung</h2>
+					<div class="grid-list gap-20" data-columns="6" data-columns-md="5" data-columns-sm="2" >
+						<div class="grid-box">
+							{% for info_grafis in category.posts %}
+							{% if info_grafis.info_grafis.provinsi == "Bali" and info_grafis.info_grafis.kabupaten == "Badung"  %}
+							<div class="grid-item">
+								<a id="example-box-trigger" href="#example-box-{{info_grafis.slug}}" class="img-box lightbox" data-lightbox-anima="fade-in">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center>
+								</a>
+								<div id="example-box-{{info_grafis.slug}}" class="box-lightbox">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center><br>
+									{{ info_grafis.content_html|raw }}
+								</div>
+							</div>
+							{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+					<hr/>
+					
+					<h2>Gianyar</h2>
+					<div class="grid-list gap-20" data-columns="6" data-columns-md="5" data-columns-sm="2" >
+						<div class="grid-box">
+							{% for info_grafis in category.posts %}
+							{% if info_grafis.info_grafis.provinsi == "Bali" and info_grafis.info_grafis.kabupaten == "Gianyar"  %}
+							<div class="grid-item">
+								<a id="example-box-trigger" href="#example-box-{{info_grafis.slug}}" class="img-box lightbox" data-lightbox-anima="fade-in">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center>
+								</a>
+								<div id="example-box-{{info_grafis.slug}}" class="box-lightbox">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center><br>
+									{{ info_grafis.content_html|raw }}
+								</div>
+							</div>
+							{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+					<hr/>
+					
+					<h2>Buleleng</h2>
+					<div class="grid-list gap-20" data-columns="6" data-columns-md="5" data-columns-sm="2" >
+						<div class="grid-box">
+							{% for info_grafis in category.posts %}
+							{% if info_grafis.info_grafis.provinsi == "Bali" and info_grafis.info_grafis.kabupaten == "Buleleng"  %}
+							<div class="grid-item">
+								<a id="example-box-trigger" href="#example-box-{{info_grafis.slug}}" class="img-box lightbox" data-lightbox-anima="fade-in">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center>
+								</a>
+								<div id="example-box-{{info_grafis.slug}}" class="box-lightbox">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center><br>
+									{{ info_grafis.content_html|raw }}
+								</div>
+							</div>
+							{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+					<hr/>
+					
+					<h2>Tabanan</h2>
+					<div class="grid-list gap-20" data-columns="6" data-columns-md="5" data-columns-sm="2" >
+						<div class="grid-box">
+							{% for info_grafis in category.posts %}
+							{% if info_grafis.info_grafis.provinsi == "Bali" and info_grafis.info_grafis.kabupaten == "Tabanan"  %}
+							<div class="grid-item">
+								<a id="example-box-trigger" href="#example-box-{{info_grafis.slug}}" class="img-box lightbox" data-lightbox-anima="fade-in">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center>
+								</a>
+								<div id="example-box-{{info_grafis.slug}}" class="box-lightbox">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center><br>
+									{{ info_grafis.content_html|raw }}
+								</div>
+							</div>
+							{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+					<hr/>
+					
+					<h2>Klungkung</h2>
+					<div class="grid-list gap-20" data-columns="6" data-columns-md="5" data-columns-sm="2" >
+						<div class="grid-box">
+							{% for info_grafis in category.posts %}
+							{% if info_grafis.info_grafis.provinsi == "Bali" and info_grafis.info_grafis.kabupaten == "Klungkung"  %}
+							<div class="grid-item">
+								<a id="example-box-trigger" href="#example-box-{{info_grafis.slug}}" class="img-box lightbox" data-lightbox-anima="fade-in">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center>
+								</a>
+								<div id="example-box-{{info_grafis.slug}}" class="box-lightbox">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center><br>
+									{{ info_grafis.content_html|raw }}
+								</div>
+							</div>
+							{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+					<hr/>
+					
+					<h2>Karangasem</h2>
+					<div class="grid-list gap-20" data-columns="6" data-columns-md="5" data-columns-sm="2" >
+						<div class="grid-box">
+							{% for info_grafis in category.posts %}
+							{% if info_grafis.info_grafis.provinsi == "Bali" and info_grafis.info_grafis.kabupaten == "Karangasem"  %}
+							<div class="grid-item">
+								<a id="example-box-trigger" href="#example-box-{{info_grafis.slug}}" class="img-box lightbox" data-lightbox-anima="fade-in">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center>
+								</a>
+								<div id="example-box-{{info_grafis.slug}}" class="box-lightbox">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center><br>
+									{{ info_grafis.content_html|raw }}
+								</div>
+							</div>
+							{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+					<hr/>
+					
+					<h2>Jembrana</h2>
+					<div class="grid-list gap-20" data-columns="6" data-columns-md="5" data-columns-sm="2" >
+						<div class="grid-box">
+							{% for info_grafis in category.posts %}
+							{% if info_grafis.info_grafis.provinsi == "Bali" and info_grafis.info_grafis.kabupaten == "Jembrana"  %}
+							<div class="grid-item">
+								<a id="example-box-trigger" href="#example-box-{{info_grafis.slug}}" class="img-box lightbox" data-lightbox-anima="fade-in">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center>
+								</a>
+								<div id="example-box-{{info_grafis.slug}}" class="box-lightbox">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center><br>
+									{{ info_grafis.content_html|raw }}
+								</div>
+							</div>
+							{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+					<hr/>
+					
+					<h2>Bangli</h2>
+					<div class="grid-list gap-20" data-columns="6" data-columns-md="5" data-columns-sm="2" >
+						<div class="grid-box">
+							{% for info_grafis in category.posts %}
+							{% if info_grafis.info_grafis.provinsi == "Bali" and info_grafis.info_grafis.kabupaten == "Bangli"  %}
+							<div class="grid-item">
+								<a id="example-box-trigger" href="#example-box-{{info_grafis.slug}}" class="img-box lightbox" data-lightbox-anima="fade-in">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center>
+								</a>
+								<div id="example-box-{{info_grafis.slug}}" class="box-lightbox">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center><br>
+									{{ info_grafis.content_html|raw }}
+								</div>
+							</div>
+							{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+					<hr/>
+					
+				</div>
+				<div class="panel">
+				    
+				    <h2>Kab. Lombok Timur</h2>
+					<div class="grid-list gap-20" data-columns="6" data-columns-md="5" data-columns-sm="2" >
+						<div class="grid-box">
+							{% for info_grafis in category.posts %}
+							{% if info_grafis.info_grafis.provinsi == "NTB" and info_grafis.info_grafis.kabupaten == "Kab. Lombok Timur"  %}
+							<div class="grid-item">
+								<a id="example-box-trigger" href="#example-box-{{info_grafis.slug}}" class="img-box lightbox" data-lightbox-anima="fade-in">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center>
+								</a>
+								<div id="example-box-{{info_grafis.slug}}" class="box-lightbox">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center><br>
+									{{ info_grafis.content_html|raw }}
+								</div>
+							</div>
+							{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+					<hr/>
+					
+					<h2>Kab. Sumbawa Barat</h2>
+					<div class="grid-list gap-20" data-columns="6" data-columns-md="5" data-columns-sm="2" >
+						<div class="grid-box">
+							{% for info_grafis in category.posts %}
+							{% if info_grafis.info_grafis.provinsi == "NTB" and info_grafis.info_grafis.kabupaten == "Kab. Sumbawa Barat"  %}
+							<div class="grid-item">
+								<a id="example-box-trigger" href="#example-box-{{info_grafis.slug}}" class="img-box lightbox" data-lightbox-anima="fade-in">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center>
+								</a>
+								<div id="example-box-{{info_grafis.slug}}" class="box-lightbox">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center><br>
+									{{ info_grafis.content_html|raw }}
+								</div>
+							</div>
+							{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+					<hr/>
+					
+					<h2>Mataram</h2>
+					<div class="grid-list gap-20" data-columns="6" data-columns-md="5" data-columns-sm="2" >
+						<div class="grid-box">
+							{% for info_grafis in category.posts %}
+							{% if info_grafis.info_grafis.provinsi == "NTB" and info_grafis.info_grafis.kabupaten == "Mataram"  %}
+							<div class="grid-item">
+								<a id="example-box-trigger" href="#example-box-{{info_grafis.slug}}" class="img-box lightbox" data-lightbox-anima="fade-in">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center>
+								</a>
+								<div id="example-box-{{info_grafis.slug}}" class="box-lightbox">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center><br>
+									{{ info_grafis.content_html|raw }}
+								</div>
+							</div>
+							{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+					<hr/>
+				    
+				</div>
+				<div class="panel">
+				    
+				    <h2>Kab. Ende</h2>
+					<div class="grid-list gap-20" data-columns="6" data-columns-md="5" data-columns-sm="2" >
+						<div class="grid-box">
+							{% for info_grafis in category.posts %}
+							{% if info_grafis.info_grafis.provinsi == "NTT" and info_grafis.info_grafis.kabupaten == "Kab. Ende"  %}
+							<div class="grid-item">
+								<a id="example-box-trigger" href="#example-box-{{info_grafis.slug}}" class="img-box lightbox" data-lightbox-anima="fade-in">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center>
+								</a>
+								<div id="example-box-{{info_grafis.slug}}" class="box-lightbox">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center><br>
+									{{ info_grafis.content_html|raw }}
+								</div>
+							</div>
+							{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+					<hr/>
+					
+					<h2>Kupang</h2>
+					<div class="grid-list gap-20" data-columns="6" data-columns-md="5" data-columns-sm="2" >
+						<div class="grid-box">
+							{% for info_grafis in category.posts %}
+							{% if info_grafis.info_grafis.provinsi == "NTT" and info_grafis.info_grafis.kabupaten == "Kupang"  %}
+							<div class="grid-item">
+								<a id="example-box-trigger" href="#example-box-{{info_grafis.slug}}" class="img-box lightbox" data-lightbox-anima="fade-in">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center>
+								</a>
+								<div id="example-box-{{info_grafis.slug}}" class="box-lightbox">
+									<center><img src="{{ info_grafis.featured_images[0].path }}" alt=""></center><br>
+									{{ info_grafis.content_html|raw }}
+								</div>
+							</div>
+							{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+					<hr/>
+				    
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

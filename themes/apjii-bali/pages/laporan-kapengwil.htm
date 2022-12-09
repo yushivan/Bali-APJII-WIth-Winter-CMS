@@ -1,0 +1,53 @@
+title = "Laporan Kapengwil"
+url = "/laporan-kapengwil"
+layout = "default"
+is_hidden = 0
+
+[session]
+security = "user"
+redirect = "login"
+==
+<?php
+use Winter\Blog\Models\Post;
+	use Winter\Blog\Models\Category;
+
+	function onStart()
+	{   
+        $this['laporan-kapengwil'] = Post::where('published', 1)->get();
+		$this['category'] = Category::where('slug', 'laporan-kapengwil')->first();
+	}
+?>
+==
+<style type="text/css">
+	
+</style>
+
+{% put header_plus %}
+<header class="header-image" style="background-image:url(https://themekit.dev/shared/thumbs/hd-empty.png);">
+	<div class="container">
+		<h1>{{ this.page.title }}</h1>
+		<!-- <h2></h2> -->
+		<!-- <ol class="breadcrumb">
+			<li><a href="{{url('/')}}">Home</a></li>
+			<li><a href="#">{{this.page.title}}</a></li>
+		</ol> -->
+	</div>
+</header>
+{% endput %}
+
+<section class="section-base">
+	<div class="container">
+		<!-- <h1 align="center" class="m-b-15"> - BALI</h1> -->
+		{% for post in category.posts %}
+		<div class="cnt-box cnt-call">
+			<i class="im-paper-plane"></i>
+			<div class="caption">
+				<h2>{{post.title}}</h2>
+				<a href="{{post.excerpt}}" target="_blank" class="btn btn-xs">Unduh</a>
+			</div>
+		</div>
+		<hr class="space-sm" />
+		{% endfor %}
+		
+	</div>
+</section>

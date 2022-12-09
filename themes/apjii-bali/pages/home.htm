@@ -1,0 +1,340 @@
+title = "Home"
+url = "/"
+layout = "default"
+is_hidden = 0
+==
+<?php
+use Winter\Blog\Models\Post;
+use Winter\Blog\Models\Category;
+
+	function onStart()
+	{   
+		$slug = $this->param('slug');
+		$this['kegiatan'] = Post::where('published', 1)->get();
+		$this['category1'] = Category::where('slug', 'kegiatan')->first();
+		
+		$this['mitra'] = Post::where('published', 1)->get();
+		$this['category2'] = Category::where('slug', 'mitra')->first();
+		$this['category3'] = Category::where('slug', 'partner')->first();
+		$this['category4'] = Category::where('slug', 'supporter')->first();
+	}
+?>
+==
+{% put header_plus %}
+<!-- header -->
+<header class="header-image ken-burn-center light" data-parallax="true" data-natural-height="1080" data-natural-width="1920" data-bleed="0" data-image-src="{{ 'assets/image/bali-pura-ulundanu.jpg'|theme }}" data-offset="0" style="background: rgba(0,0,0,0.2)">
+    <div class="container" style="padding-bottom: 50px;">
+        <h1>Selamat Datang</h1>
+		<h2>Asosiasi Penyelenggara Jasa Internet Indonesia</h2>
+		<h3>Pengurus Wilayah APJII Bali Nusra</h3>
+		<a href="{{url('/pendataan-anggota/home.php')}}" target="_blank" class="btn btn-sm btn-circle" style="margin-top:10px;">Bergabung Dengan APJII Bali</a>
+    </div>
+</header> 
+<!-- end header -->
+{% endput %}
+
+<!-- news -->
+<section class="section-base" id="info-terkini">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8">
+				<ul class="slider controls-right" data-options="type:carousel,nav:true,perView:2,perViewSm:1,gap:30,controls:out,autoplay:3500">
+					{% for kegiatan in category1.posts %}
+					<li>
+						<div class="cnt-box cnt-box-info" data-href="#">
+							<a href="#" class="img-box"><img src="{{ kegiatan.featured_images[0].path }}" alt="" /></a>
+							<div class="caption">
+								<h2 style="font-size: 14px; text-align: justify;">{{kegiatan.content}}</h2>
+								<div class="cnt-info">
+									<div><span>{{kegiatan.published_at|date('d-M-Y')}}</span><span>{{kegiatan.title}}</span></div>
+								</div>
+								<a href="{{url('/kegiatan/'~kegiatan.slug)}}" class="btnnews1 btn-circle btn-text" style="text-decoration: none; margin-top: 1px;">Info Selengkapnya</a>
+							</div>
+						</div>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="col-lg-4">
+				<hr class="space-sm visible-sm" />
+				<div class="title">
+					<h2>info terkini</h2>
+					<p>Seputar kegiatan APJII Bali</p>
+				</div>
+				<p style="text-align: justify;">
+					Dokumentasi APJII Bali yang selalu aktif berpartisipasi dalam mengikuti dan menghadiri serangkaian kegiatan meliputi <span style="color: #1E90FF;">Audiensi ,</span><span style="font-style:oblique; color: #1E90FF;"> Event , Forum Discussion , </span><span style="color: #1E90FF;">dan lain-lain</span>
+				</p>
+				<a href="{{url('/kegiatan')}}" class="btn btn-circle btn-xs">Info Selengkapnya</a>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- end news -->
+
+<!-- about -->
+<section class="section-block section-block-full section-block-right">
+	<div class="block-media hidden-sm">
+		<div class="image" data-parallax="true" data-natural-height="1080" data-natural-width="1920" data-bleed="100" data-image-src="{{ 'assets/image/bali-pura-ulundanu.jpg'|theme }}"></div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col col-8">
+				<h2>OM SWASTIASTU</h2>
+				<p style="margin-top:10px; font-weight: bold;">Assalamualaikum Warahmatullahi Wabarakatuh<br>Salam Sejahtera<br>Shalom<br>Namo Budaya<br> Rahayu</p>
+				<p style="font-size:12px" align="justify">
+				Pengurus Wilayah APJII Bali pertama kali dibentuk pada tahun 2008, Pengurus Wilayah APJII Bali 2021 - 2024 secara resmi ditetapkan oleh Ketua Umum APJII pada tanggal 22 November 2021 berdasarkan Surat Keputusan Ketua Umum Nomor. 001/SK/KETUA UMUM/MUSWIL/PENGWIL-BALI/XI/2021. Pengurus Wilayah APJII Bali membawahi area Bali, Nusa Tenggara Barat dan Nusa Tenggara Timur.<br>
+					Saat ini jumlah anggota yang terdaftar sebanyak 85 yang terdiri dari 28 ISP Bali, 7 ISP Nusa Tenggara Barat, 3 ISP Nusa Tenggara Timur dan 47 ISP Nasional. 3 prioritas program kerja APJII saat ini adalah kolaborasi anggota dan stakeholder, implementasi program yang inklusif untuk seluruh anggota dan penguatan infrastruktur APJII. Ketua Pengurus Wilayah APJII Bali berkomitmen untuk reformasi APJII dengan transparansi dan komunikasi. Jika semua informasi disampaikan dengan baik dari pengurus kepada anggota dan komunikasi sudah dibentuk dengan baik, insyaallah  akan menjadi APJII Bali yang solid dan bagus. <br>
+					Kehadiran website APJII Bali sebagai salah satu sarana dalam penyampaian informasi secara terbuka kepada anggota APJII Bali dan masyarakat serta instansi lain yang terkait. 
+						<p style="margin-top:10px; font-weight: bold;">Waalaikumsalam Warahmatullahi Wabarakatuh<br> Om Shanti Shanti Shanti Om...</p>
+				</p>
+				<p style="font-weight: bold;">
+					<font style="font-size:20px">Ryan Soma</font><br>
+					Ketua Pengurus Wilayah APJII Bali
+				</p>
+			</div>
+			<div class="col hidden-sm">
+				<img src="{{ 'assets/image/buririn1.png'|theme }}" class="images-about">
+			</div>
+		</div>
+	</div>
+</section>
+<!-- end about -->
+
+<!-- higlight progam -->
+<section class="section-base" >
+	<div class="container" style="padding-top: 50px; padding-bottom: 50px">
+		<div class="title align-center">
+			<h2>HIGHLIGHT PROGRAM</h2>
+		</div>
+		<table class="table table-grid table-border table-6-md">
+			<tbody>
+				<tr>
+					<td>
+						<div class="icon-box icon-box-top align-center" onclick="location.href='https://bali.apjii.or.id/pendataan-anggota/pengumuman.php'">
+							<center><img src="{{ 'assets/image/membership2.png'|theme }}" style="max-width:70px; " /></center>
+							<div class="caption">
+								<h3>Membership</h3>
+							</div>
+						</div>
+					</td>
+					<td>
+						<div class="icon-box icon-box-top align-center" onclick="location.href='https://bali.apjii.or.id/request-layanan'">
+							<center><img src="{{ 'assets/image/facilities2.png'|theme }}" style="max-width:70px; " /></center>
+							<div class="caption">
+								<h3>Fasilitas</h3>
+							</div>
+						</div>
+					</td>
+					<td>
+						<div class="icon-box icon-box-top align-center" onclick="location.href='#info-terkini'">
+							<center><img src="{{ 'assets/image/news2.png'|theme }}" style="max-width:70px; " /></center>
+							<div class="caption">
+								<h3>Info Terbaru</h3>
+							</div>
+						</div>
+					</td>
+					<td>
+						<div class="icon-box icon-box-top align-center" onclick="location.href='https://bali.apjii.or.id/mitra'">
+							<center><img src="{{ 'assets/image/partner2.png'|theme }}" style="max-width:70px; " /></center>
+							<div class="caption">
+								<h3>Kemitraan</h3>
+			
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="icon-box icon-box-top align-center" onclick="location.href='">
+							<center><img src="{{ 'assets/image/lembaga2.png'|theme }}" style="max-width:70px; " /></center>
+							<div class="caption">
+								<h3>Kelembagaan</h3>
+							</div>
+						</div>
+					</td>
+					<td>
+						<div class="icon-box icon-box-top align-center" onclick="location.href='https://bali.apjii.or.id/sekretariat-apjii'">
+							<center><img src="{{ 'assets/image/sekretariat2.png'|theme }}" style="max-width:70px; " /></center>
+							<div class="caption">
+								<h3>Sekretariat</h3>
+					
+							</div>
+						</div>
+					</td>
+					<td>
+						<div class="icon-box icon-box-top align-center" onclick="location.href='">
+							<center><img src="{{ 'assets/image/training2.png'|theme }}" style="max-width:70px; " /></center>
+							<div class="caption">
+								<h3>Sertifikasi dan Pelatihan</h3>				
+							</div>
+						</div>
+					</td>
+					<td>
+						<div class="icon-box icon-box-top align-center" onclick="location.href='">
+							<center><img src="{{ 'assets/image/relation2.png'|theme }}" style="max-width:70px; " /></center>
+							<div class="caption">
+								<h3>Hubungan Masyarakat</h3>			
+							</div>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</section>
+<!-- end highlight progam -->
+
+<!-- latar belakang -->
+<section class="section-base section-color" id="latar-belakang"> 
+	<div class="container" style="padding-top: 35px; padding-bottom: 35px">
+		<h2 style="margin-bottom:20px">Latar Belakang Terbentuknya APJII </h2>
+		<ul class="accordion-list">
+			<li>
+				<a href="#"> Ketetapan Pembentukan APJII </a>
+				<div class="content">
+					<p>
+					Dalam Musyawarah Nasional Pertama Tanggal 15 Mei 1996, pada saat mana APJII (Asosiasi Penyelenggara Jasa Internet Indonesia) dinyatakan berdiri, dewan pengurus yang ditunjuk untuk masa jabatan 3 tahun pertama diminta untuk melakukan beberapa program kunci yang dinilai strategis untuk pengembangan jaringan internet di Indonesia. Program-program tersebut adalah :</p>
+					<p>Tarif Jasa Internet</p>
+					<ol>
+					<li>Pembentukan Indonesia-Network Information Center [ID-NIC]</li>
+					<li>Pembentukan Indonesia Internet Exchange [IIX]</li>
+					<li>Negosiasi Tarif Infrastruktur Jasa Telekomunikasi</li>
+					<li>Usulan Jumlah dan Jenis Provider</li>
+					</ol>
+					<p style="margin-top: 20px;">Program Pengusulan Tarif Jasa Internet dan Negosiasi Tarif Infrastruktur Jasa Telekomunikasi telah berhasil dilaksanakan dengan baik dengan keluarnya beberapa keputusan pemerintah, yakni :</p>
+					<ol>
+					<li>Surat Keputusan MENPARPOSTEL R.I. Nomor KM.59/PR.301/ MPPT-96 tanggal 30 Juli 1996 tentang Tarif Jasa Internet.</li>
+					<li>Surat Keputusan MENPARPOSTEL R.I. Nomor KM.2/PR.301/ MPPT-97 tanggal tentang Tarif Jasa Sirkit Langganan (Leased Circuit) Termasuk penjabarannya, Sesuai Surat SEKJEN DEPARPOSTEL R.I. Nomor PR.301/9/5/PPT-97 tanggal 28 Februari 1997 yang menyatakan bahwa Penyelenggara Jasa Internet adalah Operator Jasa Telekomunikasi.</li>
+					</ol>
+				</div>
+			</li>
+			<li>
+				<a href="#">Layanan APJII</a>
+				<div class="content">
+					<p>APJII memberikan layanan-layanan menguntungkan bagi anggota, diantaranya adalah:</p>
+					<ol>
+					<li>Koneksi IIX [Indonesia Internet Exchange]</li>
+					<li>APJII NIR [Alokasi IP Address dan AS Number]</li>
+					<li>Penyelenggaraan komunikasi dan konsultasi diantara anggota, antara anggota dengan Pemerintah, antara anggota dengan asosiasi/organisasi semitra didalam dan diluar negeri, serta antara anggota dengan dunia usaha pada umumnya</li>
+					<li>Penyediaan sumber-sumber informasi yang berkaitan dengan kebutuhan anggota</li>
+					<li>Perlindungan kepentingan anggota, memberikan masukan kepada Pemerintah melalui departemen terkait mengenai berbagai masalah demi kepentingan anggota</li>
+					<li>Penyelenggaraan Seminar dan Training</li>
+					</ol>
+				</div>
+			</li>
+			<li>
+				<a href="#">VISI dan MISI APJII</a>
+				<div class="content">
+					<p>APJII Mempunyai visi menjadi asosiasi yang berperan secara aktif dalam
+membangun dan mengembangkan tata kelola Internet Indonesia</p>
+<p>APJII mempunyai misi</p>
+                    <ol>
+					<li>Membangun dan mengembangkan internet di Indonesia</li>
+					<li>Mengelola Sumber Daya Internet untuk masyarakat Indonesia</li>
+					<li>Meningkatkan potensi sumber daya manusia dalam bidang teknologi internet</li>
+					<li>Membantu anggota dalam mengembangkan industri internet</li>
+					</ol>
+				</div>
+			</li>
+			<li>
+				<a href="#">Tugas Tugas Pokok APJII</a>
+				<div class="content">
+					<p>APJII mempunyai tugas-tugas pokok sebagai berikut :</p>
+					<ol>
+					<li>Membina dan mengembangkan rasa kesatuan dan persatuan di antara para anggotanya.</li>
+					<li>Melindungi kepentingan para anggota.</li>
+					<li>Membantu usaha arbitrase dalam arti menengahi, mendamaikan dan menyelesaikan diantara anggota.</li>
+					<li>Menyelenggarakan komunikasi dan konsultasi antar anggota, antara anggota dengan Pemerintah dan antara anggota dengan asosiasi/organisasi semitra di dalam dan luar negeri, serta dunia usaha pada umumnya.</li>
+					<li>Menyelenggarakan hubungan dengan badan perekonomian dan badan-badan lain yang berkaitan dengan dan bermanfaat bagi APJII, baik nasional maupun Internasional.</li>
+					<li>Menjadi mitra Pemerintah dalam membangun sarana informasi dan komunikasi Nasional dan Internasional, sehingga seluruh sumber daya yang ada dapat digerakkan secara terpadu, efisien dan efektif.</li>
+					</ol>
+				</div>
+			</li>
+			<li>
+				<a href="#">Hirarki dan Struktur Asosiasi</a>
+				<div class="content">
+					<p>Struktur dan perangkat APJII terdiri dari :</p>
+					<ol>
+					<li>Musyawarah Nasional</li>
+                    <li>Musyawarah Nasional Luar Biasa</li>
+                    <li>Musyawarah Wilayah</li>
+                    <li>Rapat Kerja Nasional</li>
+                    <li>Dewan Pengawas</li>
+                    <li>Dewan Pengurus</li>
+                    <li>Bidang dan Unit IDNIC APJII</li>
+                    <li>Pengurus Wilayah</li>
+                    <li>Badan Pelaksana Harian</li>
+					</ol>
+				</div>
+			</li>
+		</ul>
+	</div>
+</section>
+<!-- end latar belakang -->
+
+<!-- higlight progam -->
+<section class="section-base">
+	<div class="container" style="padding-top: 25px; padding-bottom: 25px">
+		<div class="row">
+		    <div class="owl-carousel owl-theme slider-mitra">
+		        {% for supporter in category3.posts %}
+                <div class="item"><img src="{{ supporter.featured_images[0].path }}" /></div>
+                {% endfor %}
+                {% for partner in category4.posts %}
+                <div class="item"><img src="{{ partner.featured_images[0].path }}" /></div>
+                {% endfor %}
+            </div>
+        </div>
+	</div>
+</section>
+<!-- end highlight progam -->
+
+<style type="text/css">
+	.icon-box{
+	    cursor: pointer;
+	}
+	.owl-stage{
+	    display: flex;
+	    align-items: center;
+	}
+	.images-about{
+	    position: absolute; 
+	    bottom: 0px; 
+	    margin-bottom: -100px;
+	}
+	@media screen and (max-width: 1512px) {
+	    .images-about{
+    	    margin-bottom: -100px;
+    	}   
+	}
+	@media screen and (max-width: 600px) {
+    	.table-grid td, .table-grid.table-border tbody tr td:first-child, .table-grid.table-border tbody tr:last-child td{
+    	    padding: 5px;   
+    	}
+	}
+</style>
+
+{% put scripts %}
+<script>
+$('.slider-mitra').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:false,
+    dots:false,
+    autoplay:true,
+    autoplayTimeout:1500,
+    autoplayHoverPause:true,
+    responsive:{
+        0:{
+            items:4
+        },
+        600:{
+            items:4
+        },
+        1000:{
+            items:6
+        }
+    }
+})
+</script>
+{% endput %}

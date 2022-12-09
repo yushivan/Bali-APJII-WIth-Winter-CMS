@@ -1,0 +1,173 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+    title:
+        label: winter.blog::lang.post.title
+        span: left
+        placeholder: winter.blog::lang.post.title_placeholder
+
+    slug:
+        label: winter.blog::lang.post.slug
+        span: right
+        placeholder: winter.blog::lang.post.slug_placeholder
+        preset:
+            field: title
+            type: slug
+
+    toolbar:
+        type: partial
+        path: post_toolbar
+        cssClass: collapse-visible
+
+secondaryTabs:
+    stretch: true
+    fields:
+        content:
+            tab: winter.blog::lang.post.tab_edit
+            type: Winter\Blog\FormWidgets\BlogMarkdown
+            cssClass: field-slim blog-post-preview
+            stretch: true
+            mode: split
+
+        categories:
+            tab: winter.blog::lang.post.tab_categories
+            type: relation
+            commentAbove: winter.blog::lang.post.categories_comment
+            placeholder: winter.blog::lang.post.categories_placeholder
+            
+        info_grafis[provinsi]:
+            tab: winter.blog::lang.post.tab_categories
+            label: Provinsi
+            span: left
+            type: dropdown
+            options:
+                Bali: Bali
+                NTB: NTB
+                NTT: NTT 
+                
+        info_grafis[kabupaten]:
+            tab: winter.blog::lang.post.tab_categories
+            label: Kabupaten
+            span: right
+            type: dropdown
+            options:
+                Denpasar: Denpasar
+                Badung: Badung
+                Gianyar: Gianyar
+                Buleleng: Buleleng
+                Tabanan: Tabanan
+                Klungkung: Klungkung
+                Karangasem: Karangasem
+                Jembrana: Jembrana
+                Bangli: Bangli
+                Kab. Lombok Timur: Kab. Lombok Timur
+                Kab. Sumbawa Barat: Kab. Sumbawa Barat
+                Mataram: Mataram
+                Kab. Ende: Kab. Ende
+                Kupang: Kupang
+                
+        info_grafis[isp]:
+            tab: winter.blog::lang.post.tab_categories
+            label: ISP
+            span: left
+            type: dropdown
+            options:
+                Nasional: Nasional
+                Lokal: Lokal
+
+        published:
+            tab: winter.blog::lang.post.tab_manage
+            label: winter.blog::lang.post.published
+            span: left
+            type: checkbox
+
+        user:
+            tab: winter.blog::lang.post.tab_manage
+            label: winter.blog::lang.post.published_by
+            span: right
+            type: relation
+            nameFrom: login
+            emptyOption: winter.blog::lang.post.current_user
+
+        published_at:
+            tab: winter.blog::lang.post.tab_manage
+            label: winter.blog::lang.post.published_on
+            span: left
+            cssClass: checkbox-align
+            type: datepicker
+            mode: datetime
+            trigger:
+                action: enable
+                field: published
+                condition: checked
+
+        excerpt:
+            tab: winter.blog::lang.post.tab_manage
+            label: winter.blog::lang.post.excerpt
+            type: textarea
+            size: small
+
+        featured_images:
+            tab: winter.blog::lang.post.tab_manage
+            label: winter.blog::lang.post.featured_images
+            type: fileupload
+            mode: image
+            imageWidth: 200
+            imageHeight: 200
+        
+        pengurus[nama]:
+            tab: Pengurus
+            label: Nama
+            type: text
+            span: full
+            
+        pengurus[jabatan]:
+            tab: Pengurus
+            label: Jabatan
+            span: left
+            type: dropdown
+            options:
+                Ketua: Ketua
+                Sekretaris: Sekretaris
+                Bendahara: Bendahara
+                Ketua Bidang: Ketua Bidang
+                
+        pengurus[detail_jabatan]:
+            tab: Pengurus
+            label: Detail Jabatan
+            type: text
+            span: right
+            
+        pengurus[no_telp]:
+            tab: Pengurus
+            label: No Telp
+            type: text
+            span: left
+            
+        pengurus[email]:
+            tab: Pengurus
+            label: Email
+            type: text
+            span: right
+            
+        pengurus[instagram]:
+            tab: Pengurus
+            label: Instagram
+            type: text
+            span: left
+            
+        pengurus[facebook]:
+            tab: Pengurus
+            label: Facebook
+            type: text
+            span: right
+            
+        pengurus[alamat]:
+            tab: Pengurus
+            label: Alamat
+            type: textarea
+            span: full
+            size: small

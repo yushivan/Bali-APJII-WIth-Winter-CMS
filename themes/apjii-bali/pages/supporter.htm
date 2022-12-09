@@ -1,0 +1,61 @@
+title = "Supporter"
+url = "/supporter"
+layout = "default"
+is_hidden = 0
+==
+<?php
+	use Winter\Blog\Models\Post;
+	use Winter\Blog\Models\Category;
+
+	function onStart()
+	{   
+		$slug = $this->param('slug');
+		$this['supporter'] = Post::where('published', 1)->get();
+		$this['category'] = Category::where('slug', 'supporter')->first();
+	}
+?>
+==
+<style type="text/css">
+	.img-box-caption img{
+		height: 250px;		
+		object-fit: cover;
+	}
+	/*.col-lg-2{
+
+	}*/
+</style>
+
+{% put header_plus %}
+<header class="header-image" style="background-image:url(https://themekit.dev/shared/thumbs/hd-empty.png);">
+	<div class="container">
+		<h1>{{ this.page.title }}</h1>
+		<!-- <h2></h2> -->
+		<!-- <ol class="breadcrumb">
+			<li><a href="{{url('/')}}">Home</a></li>
+			<li><a href="#">{{this.page.title}}</a></li>
+		</ol> -->
+	</div>
+</header>
+{% endput %}
+
+<section class="section-base">
+	<div class="container">
+		<!-- <h1 align="center" class="m-b-15"> - BALI</h1> -->
+		<div class="grid-list gap-20" data-columns="6" data-columns-md="5" data-columns-sm="2" >
+			<div class="grid-box">
+				{% for supporter in category.posts %}
+				<div class="grid-item">
+					<a id="example-box-trigger" href="#example-box" class="img-box lightbox" data-lightbox-anima="fade-in">
+						<center><img src="{{ supporter.featured_images[0].path }}" alt=""></center>
+					</a>
+					<div id="example-box" class="box-lightbox">
+						<center><img src="{{ supporter.featured_images[0].path }}" alt=""></center><br>
+						{{ supporter.content_html|raw }}
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+

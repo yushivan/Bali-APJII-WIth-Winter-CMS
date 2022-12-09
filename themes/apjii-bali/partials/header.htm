@@ -1,0 +1,80 @@
+<div id="preloader"></div>
+
+<!-- Navigation menu start -->
+<nav class="menu-classic menu-fixed align-right" data-menu-anima="fade-in">
+    <div class="container">
+        <div class="menu-brand">
+            <a href="{{url('/')}}">
+                <img class="logo-default scroll-hide" src="{{ 'assets/image/logo-apjii-biru.png'|theme }}" alt="logo" />
+                
+                <img class="logo-retina scroll-hide" src="{{ 'assets/image/logo-apjii-biru.png'|theme }}" alt="logo" />
+                
+                <img class="logo-default scroll-show" src="{{ 'assets/image/logo-apjii-putih.png'|theme }}" alt="logo" />
+                
+                <img class="logo-retina scroll-show" src="{{ 'assets/image/logo-apjii-putih.png'|theme }}"alt="logo" />
+            </a>
+        </div>
+        <i class="menu-btn"></i>
+        <div class="menu-cnt" style="color: #000033;">
+            <ul id="main-menu" style="word-spacing: 2px;">
+                <li class="dropdown">
+                    <a href="#">Tentang</a>
+                    <ul>
+                        <li><a href="{{url('/sekretariat-apjii')}}">Sekretariat APJII Bali</a></li>
+                        <li><a href="{{url('/#latar-belakang')}}">Latar Belakang</a></li>
+                        <li><a href="{{url('/pengurus-wilayah')}}">Pengurus Wilayah</a></li>
+                        <li><a href="{{url('/program-kerja')}}">Program Kerja</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Keanggotaan</a>
+                    <ul>
+                        <li><a href="{{url('/info-grafis')}}">Info Grafis Anggota</a></li>
+                        <li><a href="{{url('/koordinator-anggota')}}">Koordinator Anggota</a></li>
+                        <li><a href="{{url('/pendataan-anggota/daftar.php')}}" target="_blank">Registrasi Anggota</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Partner</a>
+                    <ul>
+                        <li><a href="{{url('/partner')}}">Partner</a></li>
+                        <li><a href="{{url('/supporter')}}">Supporter</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Layanan</a>
+                    <ul>
+                        <li><a href="#">IIX Bali</a></li>
+                        <li><a href="#">Tower APJII Bali</a></li>
+                        <li><a href="#">Interkoneksi OTB</a></li>
+                        <li><a href="{{url('/request-layanan')}}">Request Layanan</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Laporan</a>
+                    <ul>
+                        <li><a href="{{url('/laporan-kegiatan')}}">Kegiatan</a></li>
+                        <li><a href="{{url('/laporan-sekretariat')}}">Sekretariat</a></li>
+                        <li><a href="{{url('/laporan-keuangan')}}">Keuangan</a></li>
+                        <li><a href="{{url('/laporan-kapengwil')}}">Kapengwil</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" >Dokumentasi</a>
+                    <ul>
+                        <li><a href="{{url('/instagram-post')}}">Instagram Post</a></li>
+                        <li><a href="{{url('/kegiatan')}}">Info Terkini</a></li>
+                    </ul>
+                </li>
+                {% if user %}
+                <li><a data-request="onLogout" data-request-data="redirect: '/'" style="cursor: pointer;">Logout</a></li>
+
+                {% else %}
+                <li class="dropdown"><a href="{{url('/login')}}">Login</a></li>
+
+                {%endif%}
+            </ul>
+        </div>
+    </div>
+</nav>
+    <!-- Navigation menu end -->

@@ -1,0 +1,37 @@
+title = "Home Dev"
+url = "/home-dev"
+layout = "default"
+is_hidden = 0
+
+[formSubscribe]
+urlToUnsubscribe = "unsubscribe"
+urlToProfile = "subscriber-profile"
+geo = "enabled"
+thanksMessage = "Thanks for subscribe!"
+errorMessage = "Email already exists!"
+==
+<section class="section-base">
+<div class="container">
+    
+    <div class="card">
+    <div class="card-titlet">
+        <h2>SUSCRIBETE</h2>
+    </div>
+
+    <div class="card-content author">
+        <form name="form-subscribe-andradedev" id="form-subscribe-andradedev" data-request="{{ formSubscribe }}::onAddSubscriber" data-request-update="'{{formSubscribe}}::alert': '#result'">
+            <input type="email" class="form-control" name="email" placeholder="* Email" required>
+            <input type="hidden" name="latitude" id="latitude">
+            <input type="hidden" name="longitude" id="longitude">
+        </form>
+    </div>
+
+    <div class="card-action">
+        <button class="btn btn-primary btn-block" form="form-subscribe-andradedev">Subscribirse</button>
+    </div>
+    
+    <div id="result"></div>
+</div>
+    
+</diiv>
+</section>

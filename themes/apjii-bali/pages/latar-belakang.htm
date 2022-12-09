@@ -1,0 +1,102 @@
+title = "Latar Belakang"
+url = "/latar-belakang"
+layout = "default"
+is_hidden = 0
+==
+<?php
+	use Winter\Blog\Models\Post;
+	use Winter\Blog\Models\Category;
+
+	function onStart()
+	{   
+
+	}
+?>
+==
+{% put header_plus %}
+<header class="header-image" style="background-image:url(https://themekit.dev/shared/thumbs/hd-empty.png);">
+	<div class="container">
+		<h1>{{ this.page.title }}</h1>
+		<!-- <h2>Lorem Ipsum is simply dummy text of the printing</h2> -->
+		<!-- <ol class="breadcrumb">
+			<li><a href="#">Home</a></li>
+			<li><a href="#">{{this.page.title}}</a></li>
+		</ol> -->
+	</div>
+</header>
+{% endput %}
+
+<section class="section-base section-color"> 
+	<div class="container">
+		<h2 style="margin-bottom:20px">Latar Belakang Terbentuknya APJII </h2>
+		<ul class="accordion-list" data-open="0">
+			<li>
+				<a href="#"> Ketetapan Pembentukan APJII </a>
+				<div class="content">
+					<p>
+					Dalam Musyawarah Nasional Pertama Tanggal 15 Mei 1996, pada saat mana APJII (Asosiasi Penyelenggara Jasa Internet Indonesia) dinyatakan berdiri, dewan pengurus yang ditunjuk untuk masa jabatan 3 tahun pertama diminta untuk melakukan beberapa program kunci yang dinilai strategis untuk pengembangan jaringan internet di Indonesia. Program-program tersebut adalah :</p>
+					<p style="margin-top: 20px;">- Tarif Jasa Internet</p>
+					<p>- Pembentukan Indonesia-Network Information Center [ID-NIC]</p>
+					<p>- Pembentukan Indonesia Internet Exchange [IIX]</p>
+					<p>- Negosiasi Tarif Infrastruktur Jasa Telekomunikasi</p>
+					<p>- Usulan Jumlah dan Jenis Provider</p>
+					<p style="margin-top: 20px;">Program Pengusulan Tarif Jasa Internet dan Negosiasi Tarif Infrastruktur Jasa Telekomunikasi telah berhasil dilaksanakan dengan baik dengan keluarnya beberapa keputusan pemerintah, yakni :</p>
+					<p style="margin-top: 20px;">- Surat Keputusan MENPARPOSTEL R.I. Nomor KM.59/PR.301/ MPPT-96 tanggal 30 Juli 1996 tentang Tarif Jasa Internet.</p>
+					<p>- Surat Keputusan MENPARPOSTEL R.I. Nomor KM.2/PR.301/ MPPT-97 tanggal tentang Tarif Jasa Sirkit Langganan (Leased Circuit) Termasuk penjabarannya, Sesuai Surat SEKJEN DEPARPOSTEL R.I. Nomor PR.301/9/5/PPT-97 tanggal 28 Februari 1997 yang menyatakan bahwa Penyelenggara Jasa Internet adalah Operator Jasa Telekomunikasi.</p>
+				</div>
+			</li>
+			<li>
+				<a href="#">Tujuan Berdirinya APJII</a>
+				<div class="content">
+					<p>APJII memberikan layanan-layanan menguntungkan bagi anggota, diantaranya adalah:</p>
+					<p style="margin-top: 20px;">1. Koneksi IIX [Indonesia Internet Exchange]</p>
+					<p>2. APJII NIR [Alokasi IP Address dan AS Number]</p>
+					<p>3. Penyelenggaraan komunikasi dan konsultasi diantara anggota, antara anggota dengan Pemerintah, antara anggota dengan asosiasi/organisasi semitra didalam dan diluar negeri, serta antara anggota dengan dunia usaha pada umumnya</p>
+					<p>4. Penyediaan sumber-sumber informasi yang berkaitan dengan kebutuhan anggota</p>
+					<p>5. Perlindungan kepentingan anggota, memberikan masukan kepada Pemerintah melalui departemen terkait mengenai berbagai masalah demi kepentingan anggota</p>
+					<p>6. Penyelenggaraan Seminar dan Training</p>
+				</div>
+			</li>
+			<li>
+				<a href="#">VISI dan MISI APJII</a>
+				<div class="content">
+					<p>APJII memiliki misi dan tujuan sebagai berikut :</p>
+					<p style="margin-top: 20px;"></p>
+					<p>1. Membantu para anggota dalam menyediakan jasa Internet yang berkualitas bagi masyarakat Indonesia</p>
+					<p>2. Memasyarakatkan Internet dalam menunjang pengembangan sumber daya manusia di Indonesia</p>
+					<p>3. Mendukung terciptanya peluang bisnis pengusaha Indonesia melalui penyediaan sarana informasi dan komunikasi global</p>
+					<p>4. Membantu pemerintah dalam usaha pemerataan ekonomi di tanah air melalui kesempatan akses terhadap informasi dan komunikasi secara merata di seluruh pelosok Indonesia</p>
+					<p>5. Membantu para anggota dalam menyediakan sumber-sumber informasi mengenai Indonesia</p>
+					<p>6. Meningkatkan partisipasi masyarakat Indonesia dalam kerjasama Internasional</p>
+				</div>
+			</li>
+			<li>
+				<a href="#">Tugas Tugas Pokok APJII</a>
+				<div class="content">
+					<p>APJII mempunyai tugas-tugas pokok sebagai berikut :</p>
+					<p style="margin-top: 20px;"></p>
+					<p>1. Membina dan mengembangkan rasa kesatuan dan persatuan di antara para anggotanya.</p>
+					<p>2. Melindungi kepentingan para anggota.</p>
+					<p>3. Membantu usaha arbitrase dalam arti menengahi, mendamaikan dan menyelesaikan diantara anggota.</p>
+					<p>4. Menyelenggarakan komunikasi dan konsultasi antar anggota, antara anggota dengan Pemerintah dan antara anggota dengan asosiasi/organisasi semitra di dalam dan luar negeri, serta dunia usaha pada umumnya.</p>
+					<p>5. Menyelenggarakan hubungan dengan badan perekonomian dan badan-badan lain yang berkaitan dengan dan bermanfaat bagi APJII, baik nasional maupun Internasional.</p>
+					<p>6. Menjadi mitra Pemerintah dalam membangun sarana informasi dan komunikasi Nasional dan Internasional, sehingga seluruh sumber daya yang ada dapat digerakkan secara terpadu, efisien dan efektif.</p>
+				</div>
+			</li>
+			<li>
+				<a href="#">Perangkat Organisasi APJII</a>
+				<div class="content">
+					<p>Struktur dan perangkat APJII terdiri dari :</p>
+					<p style="margin-top: 20px;">1. Musyawarah Nasional/Musyawarah Nasional Luar Biasa</p>
+					<p>2. Dewan Pelindung/Pembina</p>
+					<p>3. Dewan Pengurus</p>
+					<p>   a. Anggota Dewan Ketua</p>
+					<p>   b. Sekretaris Jenderal</p>
+					<p>   c. Bendahara</p>
+					<p>4. Badan Pelaksana Harian</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+</section>
+

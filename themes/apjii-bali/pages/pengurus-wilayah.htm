@@ -1,0 +1,209 @@
+title = "Pengurus Wilayah"
+url = "/pengurus-wilayah"
+layout = "default"
+is_hidden = 0
+==
+<?php
+use Winter\Blog\Models\Post;
+	use Winter\Blog\Models\Category;
+
+	function onStart()
+	{   
+        $this['pengurus'] = Post::where('published', 1)->get();
+        $this['category'] = Category::where('slug', 'pengurus')->first();
+	}
+?>
+==
+<style type="text/css">
+	.grid-item{
+		justify-self: center;
+		text-align: center;
+	}
+	.grid-list{
+		margin-bottom: 20px;
+	}
+	.cnt-box-team:hover .caption{
+		height: 150px;
+	}
+	.section-custom .container{
+		max-height: 200px;
+	}
+	.section-custom .container .row{
+		margin-top: -30px;
+	}
+	@media screen and (max-width: 600px) {
+		.section-custom .container{
+			max-height: 400px;
+		}
+		.section-custom .container .row{
+			margin-top: -55px;
+		}
+	}
+	.icon-box-left{
+		cursor: pointer;
+	}
+</style>
+
+{% put header_plus %}
+<!-- <header class="header-image" style="background-image:url(https://themekit.dev/shared/thumbs/hd-empty.png);">
+	<div class="container">
+		<h1>{{ this.page.title }}</h1>
+		<h2></h2>
+		<ol class="breadcrumb">
+			<li><a href="{{url('/')}}">Home</a></li>
+			<li><a href="#">{{this.page.title}}</a></li>
+		</ol>
+	</div>
+</header> -->
+{% endput %}
+
+<section class="section-base ">
+	<div class="container" >
+		<h1 style="text-align: center;">STRUKTUR PENGURUS APJII WILAYAH BALI</h1>
+		<H2 style="text-align: center;">PERIODE 2021 - 2024</H2><br>
+		<div class="grid-list gap-20" data-columns="3" data-columns-md="3" data-columns-sm="1">
+			<div class="grid-box">
+			    {% for post in category.posts %}
+			    {% if post.pengurus.jabatan == "Ketua" %}
+				<div class="grid-item">
+					<div class="cnt-box cnt-box-team">
+					    {% if post.featured_images[0] == null %}
+					        <img src="https://themekit.dev/shared/thumbs/user.png" alt="" />
+					    {% else %}
+					        <img src="{{ post.featured_images[0].path }}" alt="" />
+					    {% endif %}
+						<div class="caption">
+							<h2>{{ post.pengurus.nama }}</h2>
+							<span>{{ post.pengurus.detail_jabatan }}</span>
+							<!--<span class="icon-links">-->
+							<!--	<a href="#" target="_blank"><i class="icon-facebook"></i></a>-->
+							<!--	<a href="#" target="_blank"><i class="icon-twitter"></i></a>-->
+							<!--	<a href="#" target="_blank"><i class="icon-instagram"></i></a>-->
+							<!--</span>-->
+							<!-- <p>
+								Lorem ipsum dolor sitamet consectetur eiusmo.
+							</p> -->
+						</div>
+					</div>
+				</div>
+				{% endif %}
+				{% endfor %}
+				
+				{% for post in category.posts %}
+			    {% if post.pengurus.jabatan == "Sekretaris" %}
+				<div class="grid-item">
+					<div class="cnt-box cnt-box-team">
+					    {% if post.featured_images[0] == null %}
+					        <img src="https://themekit.dev/shared/thumbs/user.png" alt="" />
+					    {% else %}
+					        <img src="{{ post.featured_images[0].path }}" alt="" />
+					    {% endif %}
+						<div class="caption">
+							<h2>{{ post.pengurus.nama }}</h2>
+							<span>{{ post.pengurus.detail_jabatan }}</span>
+							<!--<span class="icon-links">-->
+							<!--	<a href="#" target="_blank"><i class="icon-facebook"></i></a>-->
+							<!--	<a href="#" target="_blank"><i class="icon-twitter"></i></a>-->
+							<!--	<a href="#" target="_blank"><i class="icon-instagram"></i></a>-->
+							<!--</span>-->
+							<!-- <p>
+								Lorem ipsum dolor sitamet consectetur eiusmo.
+							</p> -->
+						</div>
+					</div>
+				</div>
+				{% endif %}
+				{% endfor %}
+				
+				
+				{% for post in category.posts %}
+			    {% if post.pengurus.jabatan == "Bendahara" %}
+				<div class="grid-item">
+					<div class="cnt-box cnt-box-team">
+					    {% if post.featured_images[0] == null %}
+					        <img src="https://themekit.dev/shared/thumbs/user.png" alt="" />
+					    {% else %}
+					        <img src="{{ post.featured_images[0].path }}" alt="" />
+					    {% endif %}
+						<div class="caption">
+							<h2>{{ post.pengurus.nama }}</h2>
+							<span>{{ post.pengurus.detail_jabatan }}</span>
+							<!--<span class="icon-links">-->
+							<!--	<a href="#" target="_blank"><i class="icon-facebook"></i></a>-->
+							<!--	<a href="#" target="_blank"><i class="icon-twitter"></i></a>-->
+							<!--	<a href="#" target="_blank"><i class="icon-instagram"></i></a>-->
+							<!--</span>-->
+							<!-- <p>
+								Lorem ipsum dolor sitamet consectetur eiusmo.
+							</p> -->
+						</div>
+					</div>
+				</div>
+				{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+		
+		<div class="grid-list gap-20" data-columns="4" data-columns-md="4" data-columns-sm="1">
+			<div class="grid-box">
+				{% for post in category.posts %}
+			    {% if post.pengurus.jabatan == "Ketua Bidang" %}
+				<div class="grid-item">
+					<div class="cnt-box cnt-box-team">
+					    {% if post.featured_images[0] == null %}
+					        <img src="https://themekit.dev/shared/thumbs/user.png" alt="" />
+					    {% else %}
+					        <img src="{{ post.featured_images[0].path }}" alt="" />
+					    {% endif %}
+						<div class="caption">
+							<h2>{{ post.pengurus.nama }}</h2>
+							<span>{{ post.pengurus.detail_jabatan }}</span>
+							<!--<span class="icon-links">-->
+							<!--	<a href="#" target="_blank"><i class="icon-facebook"></i></a>-->
+							<!--	<a href="#" target="_blank"><i class="icon-twitter"></i></a>-->
+							<!--	<a href="#" target="_blank"><i class="icon-instagram"></i></a>-->
+							<!--</span>-->
+							<!-- <p>
+								Lorem ipsum dolor sitamet consectetur eiusmo.
+							</p> -->
+						</div>
+					</div>
+				</div>
+				{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+		
+	</div>
+</section>
+
+<section class="section-base section-color section-custom">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="icon-box icon-box-left" onclick="location.href='#'">
+					<img src="{{ 'assets/image/archive.png'|theme }}" style="max-width:70px; margin-right: 20px;" />
+					<div class="caption">
+						<h3>Arsip Kepengurusan Wilayah</h3>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="icon-box icon-box-left" onclick="location.href='/#latar-belakang'">
+					<img src="{{ 'assets/image/latar-belakang.png'|theme }}" style="max-width:70px; margin-right: 20px;" />
+					<div class="caption">
+						<h3>Latar Belakang Pengurus Wilayah APJII Bali</h3>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="icon-box icon-box-left" onclick="location.href='/sekretariat-apjii'">
+					<img src="{{ 'assets/image/employee.png'|theme }}" style="max-width:70px; margin-right: 20px;" />
+					<div class="caption">
+						<h3>Sekretariat APJII Bali</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
